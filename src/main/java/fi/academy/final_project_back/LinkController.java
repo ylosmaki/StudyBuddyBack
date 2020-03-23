@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class LinkController {
     @Autowired
     private LinkRepository linkrepo;
 
-    @GetMapping("/links")
+    @GetMapping ("/links")
     private Iterable<Link> getAllLinks(){
         return linkrepo.findAll();
     }
+
     @GetMapping("/links/{id}")
     public Optional<Link> getLinkWithId(@PathVariable(name="id", required = true) Integer id) {
         return linkrepo.findById(id);

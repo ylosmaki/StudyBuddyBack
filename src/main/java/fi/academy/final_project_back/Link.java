@@ -8,9 +8,9 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class Link {
     @Id
     @GeneratedValue(strategy = SEQUENCE,
-            generator = "links_id_seq")
-    @SequenceGenerator(name = "links_id_seq",
-            sequenceName = "links_id_seq",
+            generator = "link_id_seq")
+    @SequenceGenerator(name = "link_id_seq",
+            sequenceName = "link_id_seq",
             allocationSize = 1)
     @Column(unique = true, nullable = false)
     private Integer id;
