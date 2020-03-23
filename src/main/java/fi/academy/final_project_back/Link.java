@@ -5,7 +5,7 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
-public class Links {
+public class Link {
     @Id
     @GeneratedValue(strategy = SEQUENCE,
             generator = "links_id_seq")
@@ -18,7 +18,7 @@ public class Links {
     private String description;
     private int week;
 
-    public Links() {
+    public Link() {
     }
 
     public Integer getId() {
