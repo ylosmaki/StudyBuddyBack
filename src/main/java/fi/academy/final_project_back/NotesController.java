@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,8 +25,8 @@ public class NotesController {
 
     //notes for a specific week
     @GetMapping("/{week}")
-    public Optional<Notes> oneNote(@PathVariable(value="week") Integer week) {
-        Optional<Notes> oneNote = noRep.findById(week);
+    public List<Notes> oneNote(@PathVariable(value="week") Integer week) {
+        List<Notes> oneNote = noRep.findAllByWeek(week);
         return oneNote;
     }
 
