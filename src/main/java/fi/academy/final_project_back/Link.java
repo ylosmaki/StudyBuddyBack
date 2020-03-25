@@ -15,10 +15,19 @@ public class Link {
     @Column(unique = true, nullable = false)
     private Integer id;
     private String link;
+    private String title;
     private String description;
     private int week;
 
     public Link() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Integer getId() {
