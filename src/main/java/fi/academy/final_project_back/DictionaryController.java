@@ -19,13 +19,23 @@ public class DictionaryController {
         return dictRepo.findAll();
     }
 
-    @GetMapping("dictionary/{id}")
-    public ResponseEntity<?> getOneDictionaryEntry(@PathVariable(value = "id") Integer id) {
-        Optional<Dictionary> d = dictRepo.findById(id);
-        if (d.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(d.get());
+//    @GetMapping("dictionary/{id}")
+//    public ResponseEntity<?> getOneDictionaryEntry(@PathVariable(value = "id") Integer id) {
+//        Optional<Dictionary> d = dictRepo.findById(id);
+//        if (d.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(d.get());
+//    }
+
+    @GetMapping("dictionary/{finnish}")
+    public Iterable<Dictionary> getDictionaryEntryByFinnish(@PathVariable(value = "finnish") String finnish) {
+        return dictRepo.findByFinnishContainingIgnoreCase(finnish);
+    }
+
+    @GetMapping("dictionary/english/{english}")
+    public Iterable<Dictionary> getDictionaryEntryByEnglish(@PathVariable(value = "english") String english) {
+        return dictRepo.findByEnglishContainingIgnoreCase(english);
     }
 
     @PostMapping("/dictionary")
