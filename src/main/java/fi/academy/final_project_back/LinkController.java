@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class LinkController {
     @Autowired
@@ -18,9 +19,9 @@ public class LinkController {
         return linkrepo.findAll();
     }
 
-    @GetMapping("/links/{id}")
-    public Optional<Link> getLinkWithId(@PathVariable(name="id", required = true) Integer id) {
-        return linkrepo.findById(id);
+    @GetMapping("/links/{week}")
+    public List<Link> getLinkWithId(@PathVariable(name="week", required = true) Integer week) {
+        return linkrepo.findAllByWeek(week);
     }
 
     @PostMapping("/links")
