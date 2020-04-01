@@ -22,7 +22,7 @@ public class DictionaryController {
     @GetMapping("dictionary/{id}")
     public ResponseEntity<?> getOneDictionaryEntry(@PathVariable(value = "id") Integer id) {
         Optional<Dictionary> d = dictRepo.findById(id);
-        if (d.isEmpty()) {
+        if (!d.isPresent()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(d.get());
