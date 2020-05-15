@@ -20,7 +20,7 @@ target/
 *.ipr
 target/
 out/
-.properties
+*.properties
 
 ### NetBeans ###
 /nbproject/private/
